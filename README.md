@@ -1,4 +1,4 @@
 emacs.d
 =======
 
-dotfiles
+Emacs inifiles. Lean, nothing much to see really.
