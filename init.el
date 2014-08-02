@@ -12,8 +12,8 @@
 (add-to-list 'load-path user-emacs-directory)
 
 ;; Use C-[ and C-] to move back and forwards through the buffers
-(global-set-key (kbd "C-<left>") 'previous-buffer)
-(global-set-key (kbd "C-<right>") 'next-buffer)
+(global-set-key (kbd "M-<left>") 'previous-buffer)
+(global-set-key (kbd "M-<right>") 'next-buffer)
 (global-set-key "\C-s" 'save-buffer)
 
 ;;(add-hook 'js-mode-hook 'js2-minor-mode)
@@ -45,6 +45,13 @@
 
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 (require 'init-evil)
+;(require 'init-clojure)
+
+;; Stick all setup for clojure dev here
+
+(require 'rainbow-delimiters)
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'clojure-mode-hook 'paredit-mode)
 
 (setq inferior-lisp-program "browser-repl")
-
+(provide 'init-clojure)
