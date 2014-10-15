@@ -7,6 +7,10 @@
 (add-to-list 'package-archives
 	     '("marmalade" . 
 	       "http://marmalade-repo.org/packages/"))
+
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://melpa-stable.milkbox.net/packages/"))
+             
 (package-initialize)
 
 (add-to-list 'load-path user-emacs-directory)
@@ -17,13 +21,15 @@
 (eval-after-load "color-theme"
   '(progn
      (color-theme-initialize)
-     (color-theme-hober)))
+     (color-theme-calm-forest)))
 
 
 ;; Use C-[ and C-] to move back and forwards through the buffers
 (global-set-key (kbd "M-<left>") 'previous-buffer)
 (global-set-key (kbd "M-<right>") 'next-buffer)
 (global-set-key "\C-s" 'save-buffer)
+
+(global-set-key "\M-b" 'kill-this-buffer)
 
 ;;(add-hook 'js-mode-hook 'js2-minor-mode)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
@@ -48,13 +54,13 @@
 
 (setq-default indent-tabs-mode nil)
 
-(require 'auto-complete-config)
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(ac-config-default)
+;(require 'auto-complete-config)
+;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;(ac-config-default)
 
 (add-to-list 'auto-mode-alist '("\\.cljs$" . clojure-mode))
 (require 'init-evil)
-;(require 'init-clojure)
+(require 'init-clojure)
 
 ;; Stick all setup for clojure dev here
 
@@ -63,4 +69,4 @@
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
 (setq inferior-lisp-program "browser-repl")
-(provide 'init-clojure)
+;(provide 'init-clojure)
